@@ -16,7 +16,7 @@ export const actions = {
         console.log(category)
         let categoryDb = await prisma.category.findUnique({
             where: {
-                id: Number(category)
+                id: String(category)
             }
         })
         await prisma.post.create({

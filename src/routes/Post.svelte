@@ -1,17 +1,7 @@
 <script lang="ts">
-	import type { Post } from "@prisma/client";
+	import type { Category, Post } from "@prisma/client";
 
-    export let post: ({
-    category: {
-        id: number;
-        name: string;
-    } | null;
-} & {
-    id: number;
-    content: string;
-    createdAt: Date;
-    categoryId: number | null;
-})
+    export let post: Post & {category: Category}
 </script>
 
 <div>

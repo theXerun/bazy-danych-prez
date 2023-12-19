@@ -6,20 +6,20 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model Post {
-  id        Int      @id @default(autoincrement())
-  content   String
-  createdAt DateTime @default(now())
-  category  Category? @relation(fields: [categoryId], references: [id])
-  categoryId  Int?
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  content     String
+  createdAt   DateTime @default(now())
+  category    Category? @relation(fields: [categoryId], references: [id])
+  categoryId  String? @db.ObjectId
 }
 
 model Category {
-  id        Int      @id @default(autoincrement())
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
   name      String   @unique
   posts     Post[]
 }
