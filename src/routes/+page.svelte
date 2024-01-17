@@ -17,6 +17,7 @@
 			<li><a href="/{category.name}">{category.name}</a></li>
 		{/each}
 	</ul>
+	<button class="btn"><a href="/add">Dodaj post</a></button>
 	<h3>Posty</h3>
 	{#each data.posts as post}
 		<Post post={post}></Post>
